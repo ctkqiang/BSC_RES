@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.List;
+
 /**
  * @DEVELOPER: JOHN MELODY MELISSA
  * @PROJECT_NAME : BLOOD SUGAR CONTROL REGISTRATION
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     Button REGISTER, RESET;
     FirebaseAuth firebaseAuth;
     Handler handler;
+    DATA data;
 
     private void INIT() {
 
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         handler = new Handler();
+        data = new DATA();
     }
 
     public void onStart(){
@@ -78,10 +82,10 @@ public class MainActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(password)){
                     PASSWORD.setError("Please Enter Password");
                 }
-                if (password.length() < 6){
+                else if (password.length() < 6){
                     PASSWORD.setError("Password Must be Longer than 6 letters");
                 }
-                firebaseAuth.createUserWithEmailAndPassword(email, password)
+                else{firebaseAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -91,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT)
                                             .show();
                                     toANOTHERpage();
+                                    SAVE_DATA_TO_DATABASE();
+
                                 } else {
                                     Toast.makeText(MainActivity.this,
                                             "FAILED :: TRY AGAIN",
@@ -100,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
+                }
             }
         });
 
@@ -111,6 +118,37 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(toRESET);
             }
         });
+    }
+
+    private void SAVE_DATA_TO_DATABASE() {
+        data.setNAME(NAME.getText().toString());
+        data.getEMAIL(EMAIL.getText().toString());
+        data.setPASSWORD(PASSWORD.getText().toString());
+
+        new FIREBASE_DATA_MANIPULATOR().ADD_DATA(data, new FIREBASE_DATA_MANIPULATOR.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<DATA> BSC_CLIENT, List<String> KEYS) {
+
+            }
+
+            @Override
+            public void DataIsInserted() {
+                while (true){
+                    System.out.println("DATA_UPLOADED");
+                }
+            }
+
+            @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        });
+
     }
 
     private void toANOTHERpage() {

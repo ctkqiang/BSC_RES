@@ -27,7 +27,7 @@ public class DATA {
         this.NAME = NAME;
     }
 
-    public String getEMAIL(){
+    public String getEMAIL(String string){
         return EMAIL;
     }
     public void setEMAIL(String EMAIL){
