@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void INIT() {
         CLEAR = findViewById(R.id.Clear_field);
-        EMAIL = findViewById(R.id.email);
+        EMAIL = findViewById(R.id.email_p);
         NAME = findViewById(R.id.name);
         PASSWORD = findViewById(R.id.password);
         REGISTER = findViewById(R.id.REGISTER);
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String name, email, password;
                 name = NAME.getText().toString();
-                email = EMAIL.getTag().toString();
+                email = EMAIL.getText().toString();
                 password = PASSWORD.getText().toString();
 
                 if (TextUtils.isEmpty(name)){

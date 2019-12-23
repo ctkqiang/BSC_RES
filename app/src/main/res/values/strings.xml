@@ -6,4 +6,7 @@
     <string name="register">Register</string>
     <string name="reset">Reset</string>
     <string name="clear_filed"> Clear</string>
+    <string name="ple">Please enter the email and followed by clicking the reset button. <br/>
+        User will be receiving a reset password link.</string>
+    <string name="emmme">Please Enter the email you would like to reset.</string>
 </resources>

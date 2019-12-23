@@ -17,7 +17,7 @@
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintBottom_toTopOf="@+id/email_p"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,10 +37,10 @@
         app:layout_constraintBottom_toTopOf="@+id/REGISTER"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email_p" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/email_p"
         android:layout_width="0dp"
         android:layout_height="57dp"
         android:layout_marginStart="50dp"

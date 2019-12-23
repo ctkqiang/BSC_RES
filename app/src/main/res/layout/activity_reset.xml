@@ -6,4 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".reset">
 
+    <EditText
+        android:id="@+id/eeeemail"
+        android:layout_width="303dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="46dp"
+        android:ems="10"
+        android:hint="@string/email"
+
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="295dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="238dp"
+        android:text="@string/ple"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="126dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/white"
+        android:layout_marginBottom="231dp"
+        android:text="@string/reset"
+        android:onClick="RESET"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eeeemail" />
 </androidx.constraintlayout.widget.ConstraintLayout>
